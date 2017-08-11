@@ -71,3 +71,7 @@ Keybindings:
 Support for volume down and volume up keyboard keys. Pressing them should move the slider and change the sound level (-5% or +5%). Note. If you have something like Xbindkeys or anything else binding globally to volume keys, then the volume keys might not work in Vol2X-Reloaded.
 
 Furthermore, pressing escape key (The ESC key from the keyboard) will quit the program.
+
+_______________________
+
+Original post is at: http://www.techtimejourney.net/vol2x-reloaded-v-2/
