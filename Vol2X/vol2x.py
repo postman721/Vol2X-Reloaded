@@ -1,4 +1,4 @@
-#Vol2X-Reloaded v.2 Copyright (c) 2017 JJ Posti <techtimejourney.net> 
+#Vol2X-Reloaded v.2.0.1 Copyright (c) 2017 JJ Posti <techtimejourney.net> 
 #Vol2X-Reloaded  comes with ABSOLUTELY NO WARRANTY; 
 #for details see: http://www.gnu.org/copyleft/gpl.html. 
 #This is free software, and you are welcome to redistribute it under 
@@ -27,12 +27,13 @@ class Press(QWidget):
 #For microphone.  #Microphone volume comes in as a static method - together with volume levels.      
         self.horizontal2 = QHBoxLayout()
 
-#No self in the above QHBoxLayout(). Self belongs to the first layout of this window.
+#No QHBoxLayout(self) on the above. Self belongs to the Main layout of this window -> to the self.horizontal. 
+#Also, we do not add (self) after our widgets - because we have layouts, which show up correctly.
         
 #Sliders#################################                
 
 #Slider 2 for microphone.        
-        self.slider2 = QSlider(self) #For Microphone.
+        self.slider2 = QSlider() #For Microphone.
         self.slider2.setOrientation(QtCore.Qt.Vertical)
         self.slider2.setTickPosition(QSlider.TicksBelow)
         self.slider2.setTickInterval(5)
@@ -47,7 +48,7 @@ class Press(QWidget):
         
 #######################################################
 #Slider for sound.
-        self.slider = QSlider(self) #For Sound.
+        self.slider = QSlider() #For Sound.
           
     #Slider geometry & size.
         self.slider.setGeometry(QtCore.QRect(50, 20, 521, 41))
@@ -75,7 +76,7 @@ class Press(QWidget):
 #Define the lcd numbers and properties.
 #Notice that both sliders connect to the same lcd.
 #Depending on which slider you move the lcd value will change accordingly.
-        self.lcd = QLCDNumber(self)
+        self.lcd = QLCDNumber()
         self.lcd.setStyleSheet("color:#ffffff; background-color:#353535; border: 2px solid #353535; border-radius: 3px;font-size: 12px;")
         self.lcd.setFixedSize(65, 40)
         self.lcd.setToolTip('Volume level')
@@ -135,7 +136,7 @@ class Press(QWidget):
 ######################################################                
         self.adjustSize() #This makes sure that the size is large enough for slider and others to fit in.        
 
-#Layout to self.horizontal.
+#Layout to self.horizontal. We declare this as our main layout - since our widgets and sliders are here.
         self.setLayout(self.horizontal)
 
 #Keypress events        
@@ -198,12 +199,12 @@ class MainWindow(QMainWindow):
         self.setMaximumSize(QtCore.QSize(540, 134))
         		
 #Set window title and move the window to the center of screen. Set window style.		
-        self.setWindowTitle("Vol2X-Reloaded v.2")
+        self.setWindowTitle("Vol2X-Reloaded v.2.0.1")
         self.move(QApplication.desktop().screen().rect().center()- self.rect().center())
         self.setStyleSheet("color:#ffffff; background-color:#6b6b6b; border: 2px solid #353535; border-radius: 3px;font-size: 12px;")
                         
 #Main layout & Child Window declarations.
-        self.mainLayout = QHBoxLayout(self)
+        self.mainLayout = QHBoxLayout()
                 
         self.childWindow = Press(self)
         self.setCentralWidget(self.childWindow) #Set slider's window(childWindow) as a central widget.
@@ -218,12 +219,6 @@ class MainWindow(QMainWindow):
         #Technically, we do not need another self.adjustSize here. However, it is sometimes good to make
         #sure that everything works as it should.
         
-#This window's layout is mainLayout.            
-        self.setLayout(self.mainLayout)    
-
-#Think layouts as boxes. We have boxes in in our childWindow. The boxes have all our objects
-#packed into them. In our main window we have another box, which has our child window's boxes in it. 
-               
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = MainWindow()
