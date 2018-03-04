@@ -1,4 +1,4 @@
-#Vol2X-Reloaded v.2.0.1 Copyright (c) 2017 JJ Posti <techtimejourney.net> 
+#Vol2X-Reloaded v.2.0.2 Copyright (c) 2017 JJ Posti <techtimejourney.net> 
 #Vol2X-Reloaded  comes with ABSOLUTELY NO WARRANTY; 
 #for details see: http://www.gnu.org/copyleft/gpl.html. 
 #This is free software, and you are welcome to redistribute it under 
@@ -83,17 +83,20 @@ class Press(QWidget):
         self.slider.valueChanged.connect(self.lcd.display)
         self.slider2.valueChanged.connect(self.lcd.display)
         self.horizontal.addWidget(self.lcd)
+
+#########THIS PART ONLY SEEMS TO WORK WITH DEBIAN BASED DISTRIBUTIONS
         
 #Get the initial Volume amount. Vol2X-Reloaded v.2 should get the system volume upon its launch.
 #At this point we will only fetch the initial volume amount for the actual volume slider. Microphone still starts
 #from zero by default --> I possibly change this in the future releases.
 
-        self.initial1=subprocess.Popen(['bash', 'mixer.sh'], stdout=subprocess.PIPE) #Using Popen and piping subprocess to standard output.
-        self.initial2=self.initial1.stdout.read() #Reading the standard output.
-        self.initial3=int(self.initial2) #Changing to integrer.         
-        self.slider.setValue(self.initial3) #Set slider value.
-        self.lcd.display(self.initial3)     #Set lcd value           
-###########################################################        
+        #self.initial1=subprocess.Popen(['bash', 'mixer.sh'], stdout=subprocess.PIPE) #Using Popen and piping subprocess to standard output.
+        #self.initial2=self.initial1.stdout.read() #Reading the standard output.
+        #self.initial3=int(self.initial2) #Changing to integrer.         
+        #self.slider.setValue(self.initial3) #Set slider value.
+        #self.lcd.display(self.initial3)     #Set lcd value           
+###########################################################'
+        
 #Layout box for buttons. Notice that we have no self here. Self belongs to the first layout of this window.
         self.vertical = QVBoxLayout() 
 #Volume 0%        
@@ -199,7 +202,7 @@ class MainWindow(QMainWindow):
         self.setMaximumSize(QtCore.QSize(540, 134))
         		
 #Set window title and move the window to the center of screen. Set window style.		
-        self.setWindowTitle("Vol2X-Reloaded v.2.0.1")
+        self.setWindowTitle("Vol2X-Reloaded v.2.0.2")
         self.move(QApplication.desktop().screen().rect().center()- self.rect().center())
         self.setStyleSheet("color:#ffffff; background-color:#6b6b6b; border: 2px solid #353535; border-radius: 3px;font-size: 12px;")
                         
