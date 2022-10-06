@@ -1,7 +1,7 @@
 # Vol2X-Reloaded
 Vol2X-Reloaded is an application for controlling Linux volume levels.
 
-![vol2x_v2](https://user-images.githubusercontent.com/29865797/29210302-9754ed82-7e9b-11e7-86d3-01e0686b914a.jpg)
+![vol2x](https://user-images.githubusercontent.com/29865797/194320780-3fa91e2b-d613-49b4-941d-983d57ccc2b3.png)
 
 #Vol2X-Reloaded v.2 Copyright (c) 2017 JJ Posti <techtimejourney.net>#Vol2X-Reloaded comes with ABSOLUTELY NO WARRANTY;#for details see: http://www.gnu.org/copyleft/gpl.html. #This is free software, and you are welcome to redistribute it under #GPL Version 2, June 1991″
 
@@ -39,6 +39,8 @@ Run with: python filename_location.py
 
 ___________________________
 
+Vol2x-Reloaded 2.2.0 upgrade(October 2022):
+Vol2x-Reloadded is upgraded gains awareness of system sound & microphone levels. 
 
 Vol2X-Reloaded features:
 
