@@ -40,7 +40,7 @@ Run with: python filename_location.py
 ___________________________
 
 Vol2x-Reloaded 2.2.0 upgrade(October 2022):
-Vol2x-Reloadded is upgraded gains awareness of system sound & microphone levels. 
+Vol2x-Reloadded is upgraded. It gains awareness of system sound & microphone levels. 
 
 Vol2X-Reloaded features:
 
